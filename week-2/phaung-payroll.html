@@ -1,0 +1,109 @@
+<!--
+     Title: Assignment 2.2
+    Author: Professor Krasso
+    Modified by: Saw Phaung
+    Date: October 30, 2021
+    Description: This program demonstrates the 
+            use of JavaScript types, values, and 
+            variables in an application.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB 231 – Enterprise JavaScript I</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../site.css?v=0.1">
+    <link rel="stylesheet" href="./phaung-payroll.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1 id="payroll-header">Payroll System</h1>
+
+        <h3>Employee record 1</h3>
+        <ul>
+            <li id="txtFirstNameLudgwig"></li>
+            <li id="txtLastNameBeethoven"></li>
+            <li id="txtAddressLudgwig"></li>
+            <li id="txtHireDateLudgwig"></li>
+            <li id="txtPayRateLudgwig"></li>
+        </ul>
+        <h3>Employee record 2</h3>
+        <ul>
+            <li id="txtFirstNameJohann"></li>
+            <li id="txtLastNameBach"></li>
+            <li id="txtAddressJohann"></li>
+            <li id="txtHireDateJohann"></li>
+            <li id="txtPayRateJohann"></li>
+        </ul>
+        <h3>Employee record 3</h3>
+        <ul>
+            <li id="txtFirstNameWolfgang"></li>
+            <li id="txtLastNameMozart"></li>
+            <li id="txtAddressWolfgang"></li>
+            <li id="txtHireDateWolfgang"></li>
+            <li id="txtPayRateWolfgang"></li>
+        </ul>
+        <a href="../index.html" class="return-home">Return</a>
+    </div>
+
+    <!-- JS Script -->
+    <script>
+        // variables First Name
+        let employee1FirstName = "Ludgwig",
+            employee2FirstName = "Johann",
+            employee3FirstName = "Wolfgang";
+
+        // Variables Last Name
+        let employee1LastName = "Beethoven",
+            employee2LastName = "Bach",
+            employee3LastName = "Mozart";
+
+        // Variables Address
+        let employee1Address = "505 main street",
+            employee2Address = "512 main street",
+            employee3Address = "600 main street";
+
+        // Variables Hire Date
+        let employee1HireDate = new Date().toLocaleDateString('en-US'),
+            employee2HireDate = new Date().toLocaleDateString('en-US'),
+            employee3HireDate = new Date().toLocaleDateString('en-US');
+
+        // Variables Pay Rate
+        let employee1PayRate = (18.90345).toFixed(1),
+            employee2PayRate = (25.55345).toFixed(1),
+            employee3PayRate = (50.10353).toFixed(1);
+
+        // Adding Values to First Name 
+        document.getElementById("txtFirstNameLudgwig").innerHTML = employee1FirstName;
+        document.getElementById("txtFirstNameJohann").innerHTML = employee2FirstName;
+        document.getElementById("txtFirstNameWolfgang").innerHTML = employee3FirstName;
+
+        // Adding Values to Last Name 
+        document.getElementById("txtLastNameBeethoven").innerHTML = employee1LastName;
+        document.getElementById("txtLastNameBach").innerHTML = employee2LastName;
+        document.getElementById("txtLastNameMozart").innerHTML = employee3LastName;
+
+        // Adding Values to Address
+        document.getElementById("txtAddressLudgwig").innerHTML = employee1Address;
+        document.getElementById("txtAddressJohann").innerHTML = employee2Address;
+        document.getElementById("txtAddressWolfgang").innerHTML = employee3Address;
+
+        // Adding values to Hire Date
+        document.getElementById("txtHireDateLudgwig").innerHTML = employee1HireDate;
+        document.getElementById("txtHireDateJohann").innerHTML = employee2HireDate;
+        document.getElementById("txtHireDateWolfgang").innerHTML = employee3HireDate;
+
+        // Adding values to Pay Rate - covert to one decimal place
+        document.getElementById("txtPayRateLudgwig").innerHTML = employee1PayRate;
+        document.getElementById("txtPayRateJohann").innerHTML = employee2PayRate;
+        document.getElementById("txtPayRateWolfgang").innerHTML = employee3PayRate;
+
+    </script>
+</body>
+
+</html>
