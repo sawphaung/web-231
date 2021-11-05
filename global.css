@@ -1,0 +1,107 @@
+/*
+============================================
+; Title: Gloabl CSS
+; File Name: global.css
+; Author: Professor Krasso
+; Date: 10/23/2021
+; Modified By: Saw Phaung
+; Description: This program demonstrates the
+; use of JavaScript types, values, and
+; variables in an application.
+;===========================================
+*/
+html,
+body {
+  font-family: "Oswald", Verdana, Arial, sans-serif;
+}
+
+#container {
+  padding: 10px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+a {
+  color: #453674;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4f3674;
+  background: #d6a800;
+}
+
+a:visited {
+  color: #3c275a;
+}
+
+#card-example,
+#form-example,
+#form-results-example {
+  width: 600px;
+  margin: 3% auto 0;
+}
+
+.card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px 20px;
+  margin: 25px auto;
+}
+
+.card-title {
+  font-size: 30px;
+  color: #4f3674;
+  text-align: center;
+}
+
+.card-content {
+  text-align: center;
+  font-size: 22px;
+}
+
+.form-field {
+  margin: 20px 0 30px;
+}
+
+.form-field input {
+  height: 30px;
+  width: 190px;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  margin-left: 3px;
+  padding: 0 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.btn {
+  width: 300px;
+  height: 45px;
+  line-height: 45px;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #4f3674;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #000;
+}

@@ -1,0 +1,58 @@
+<!--
+    Title: Assignment 3
+    Author: Professor Krasso
+    Modified by: Saw Phaung
+    Date: November 2, 2021
+    Description: This program demonstrates the 
+            use of JavaScript types, values, and 
+            variables in an application.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB 231 – Enterprise JavaScript I</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./phaung-temp-conversion.css?v=0.1">
+    <link rel="stylesheet" href="../global.css?v=0.1">
+
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
+
+        <div class="card">
+            <div class="card-title">Fahrenheit to Celsius Converter</div>
+
+            <div class="form-field">
+                <lable for="txtFahrenheit">Fahrenheit value:</lable>
+                <input id="txtFahrenheit" type="number">
+            </div>
+            <button class="btn btn-primary" id="covertTemp">Covert Temperature</button>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Coversion Results</div>
+            <div class="card-content" id="result"></div>
+        </div>
+
+
+        <a href="../index.html" class="return-home">Return</a>
+    </div>
+
+    <!-- JS Script -->
+    <script>
+        // Covert Temperature Function - Fahrenheit to Celsius
+        document.getElementById("covertTemp").onclick = function covertTemperature() {
+            var fahrenheit = document.getElementById("txtFahrenheit").value; // Get the input value
+            var covertTemp = (parseFloat(fahrenheit - 32) / 1.8).toFixed(2); // Covert temperature to celsius
+            document.getElementById("result").innerHTML = covertTemp; // Show the result
+        }
+    </script>
+</body>
+
+</html>
