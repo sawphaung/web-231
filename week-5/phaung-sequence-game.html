@@ -1,0 +1,119 @@
+<!--
+    Title: Assignment 5 – Sequence Game
+    Author: Professor Krasso
+    Modified by: Saw Phaung
+    Date: November 16, 2021
+    Description: This program demonstrates the 
+            use of JavaScript types, values, and 
+            variables in an application.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB 231 – Enterprise JavaScript I</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./phaung-sequence-game.css">
+    <link rel=" stylesheet" href="../global.css?v=0.1">
+
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to the sequence game!</h1>
+
+        <div class="card">
+            <div class="card-title">Sequence Selection Form</div>
+
+            <div class="form-field">
+                <lable for="txtMyNumber">Choose a number sequence:</lable>
+                <select id="sequence" class="drop-down-menu">
+                    <option value="select">--Select--</option>
+                    <option value="fibonacci">Fibonacci Sequence</option>
+                    <option value="even">Even Numbers</option>
+                    <option value="odd">Odd Numbers</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" id="btnDisplaySequence">Display Sequence</button>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Sequence Results</div>
+            <div class="card-content" id="result"></div>
+        </div>
+
+
+        <a href="../index.html" class="return-home">Return</a>
+    </div>
+
+    <!-- JS Script -->
+    <script>
+        document.getElementById("btnDisplaySequence").onclick = function guessNumber() {
+
+            let mySequence = document.getElementById("sequence").value; // Get the Select value 
+
+            var num1 = 0;
+            var num2 = 0;
+            var next = 0;
+            var totalResult = [];
+
+            if (mySequence == "fibonacci") {
+                let fibonacciSequenceText;
+
+                while (num1 < 40) {
+                    fibonacciSequenceText = num1;
+                    next = num1 + num2;
+                    num1 = num2;
+                    num2 = next;
+
+                    num1++; // increase the number
+                    totalResult.push(fibonacciSequenceText);
+                }
+
+                document.getElementById("result").innerHTML = totalResult.join(", "); // Show the result
+
+            } else if (mySequence == "even") {
+                var num1 = 1;
+
+                do {
+                    num2 = num1 % 2; // 
+
+                    if (num2 == 0) {
+                        next = num1;
+                        totalResult.push(next);
+                    }
+
+                    num1++; // increase the number
+
+                    document.getElementById("result").innerHTML = totalResult.join(", "); // Show the result
+
+                } while (num1 < 20);
+
+            } else if (mySequence == "odd") {
+
+                for (num1 = 0; num1 < 20; num1++) { // Using for loop to increase and check the number
+
+                    num2 = num1 % 2;
+
+                    if (num2 != 0) {
+                        next = num1;
+                        totalResult.push(next);
+                    }
+                    document.getElementById("result").innerHTML = totalResult.join(", "); // Show the result
+                }
+
+
+
+            } else {
+                alert("Invalid selection, please try again!");
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

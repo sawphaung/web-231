@@ -1,9 +1,9 @@
 /*
 ============================================
-; Title: Assignment 2.2
-; File Name: phaung-temp-conversion.css
+; Title: Assignment 5 - Sequence Game
+; File Name: phaung-sequence-game.css
 ; Author: Professor Krasso
-; Date: 10/30/2021
+; Date: November 15, 2021
 ; Modified By: Saw Phaung
 ; Description: This program demonstrates the
 ; use of JavaScript types, values, and
@@ -15,4 +15,16 @@
   font-size: 28px;
   text-align: center;
   font-weight: 400;
+}
+
+/* Overwrite Styling */
+#btnDisplaySequence {
+  font-size: 16px;
+  width: 355px;
+}
+
+/* Overwrite Styling */
+.card .card-content {
+  font-size: 28px;
+  text-align: center;
 }

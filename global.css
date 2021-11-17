@@ -105,3 +105,13 @@ input[type="number"] {
 .btn-primary:hover {
   background: #000;
 }
+
+.drop-down-menu {
+  height: 30px;
+  width: 190px;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  margin-left: 3px;
+  padding: 0 10px;
+  cursor: pointer;
+}
