@@ -1,0 +1,167 @@
+<!--
+    Title: Assignment 6 – In-N-Out-Books
+    Author: Professor Krasso
+    Modified by: Saw Phaung
+    Date: November 23, 2021
+    Description: This program demonstrates the 
+            use of JavaScript types, values, and 
+            variables in an application.
+    Code Attributions: 
+        1. https://www.w3schools.com/html/html_tables.asp 
+        2. https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
+        3. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB 231 – Enterprise JavaScript I</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./phaung.in-n-out-books.css">
+    <link rel=" stylesheet" href="../global.css?v=0.2">
+
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to In-N-Out-Books</h1>
+
+        <div class="card">
+            <div class="card-title">My Favorites</div>
+
+            <div class="form-field">
+                <lable for="favoriteList">Choose a listing:</lable>
+                <select id="favoriteList" class="drop-down-menu">
+                    <option value="select">--Select--</option>
+                    <option value="books">Top 3 Favorite Books</option>
+                    <option value="authors">Top 3 Favorite Authors</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" id="btnDisplayListing">Display Listing</button>
+        </div>
+
+        <!-- Table for Faviorite Books -->
+        <div class="card" id="favoriteBooks"></div>
+
+        <!-- Table for Faviorite Authors -->
+        <div class="card" id="favoriteAuthors"></div>
+
+        <!-- Return -->
+        <a href="../index.html" class="return-home">Return</a>
+    </div>
+
+    <!-- JS Script -->
+    <script>
+        // Creat JS objects - Books Array
+        const books = [
+            {
+                isbn: 1261103571,
+                title: "The Fellowship of the Ring",
+                pages: 432
+            },
+            {
+                isbn: 1514297272,
+                title: "The Two Towers",
+                pages: 322
+            },
+            {
+                isbn: 1514298139,
+                title: "The Return of the King",
+                pages: 432
+            }
+        ]
+
+        // Creat JS objects - Books Array
+        const authors = [
+            {
+                name: "Franklin Patrick Herbert Jr.",
+                genre: "Science Fiction"
+            },
+            {
+                name: "John Ronald Reuel Tolkien",
+                genre: "Fantasy"
+            },
+            {
+                name: "Clive Staples Lewis",
+                genre: "Fantasy, Science Fiction, Children's Literature"
+            }
+        ]
+
+        // Get elements by id
+        const favoriteBooks = document.getElementById('favoriteBooks');
+        const favoriteAuthors = document.getElementById('favoriteAuthors');
+        // initiate display none
+        favoriteBooks.style.display = "none";
+        favoriteAuthors.style.display = "none";
+
+        // BIND OnClick Function
+        document.getElementById("btnDisplayListing").onclick = function displayBooksListing() {
+            let choice = document.getElementById("favoriteList").value; // Get the Select value 
+
+            // Check the condition depend what user select
+            if (choice == "books") { // if user select - books
+                favoriteBooks.style.display = "block";
+                favoriteAuthors.style.display = "none";
+                favoriteBooks.innerHTML = `
+                <div class="card-title">Top 3 Favorite Books</div>
+                <table>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Pages</th>
+                    </tr>
+                    <tr>
+                        <td>${books[0].isbn}</td>
+                        <td>${books[0].title}</td>
+                        <td>${books[0].pages}</td>
+                    </tr>
+                    <tr>
+                        <td>${books[1].isbn}</td>
+                        <td>${books[1].title}</td>
+                        <td>${books[1].pages}</td>
+                    </tr>
+                    <tr>
+                        <td>${books[2].isbn}</td>
+                        <td>${books[2].title}</td>
+                        <td>${books[2].pages}</td>
+                    </tr>
+                </table>
+                `;
+
+            } else if (choice == "authors") { // if user select - authors
+                favoriteBooks.style.display = "none";
+                favoriteAuthors.style.display = "block";
+                favoriteAuthors.innerHTML = `
+                  <div class="card-title">Top 3 Favorite Authors</div>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Genre</th>
+                        </tr>
+                        <tr>
+                            <td>${authors[0].name}</td>
+                            <td>${authors[0].genre}</td>
+                        </tr>
+                        <tr>
+                            <td>${authors[1].name}</td>
+                            <td>${authors[1].genre}</td>
+                        </tr>
+                        <tr>
+                            <td>${authors[2].name}</td>
+                            <td>${authors[2].genre}</td>
+                        </tr>
+                    </table>
+                `;
+
+            } else {
+                favoriteAuthors.style.display = "none";
+                favoriteBooks.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
