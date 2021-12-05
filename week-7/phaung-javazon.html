@@ -1,0 +1,62 @@
+<!--
+    Title: Assignment 7 – Javazon
+    Author: Professor Krasso
+    Modified by: Saw Phaung
+    Date: December 04, 2021
+    Description: This program demonstrates the 
+            use of JavaScript types, values, and 
+            variables in an application.
+    
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB 231 – Enterprise JavaScript I</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./phaung-javazon.css">
+    <link rel=" stylesheet" href="../global.css?v=0.2">
+
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to the Javazon App!</h1>
+
+        <div class="card">
+            <div class="card-title">Javazon Selection Form</div>
+
+            <div class="form-field">
+                <label for="favoriteList">Choose a listing</label>
+                <select id="favoriteList" class="drop-down-menu">
+                    <option value="select">--Select--</option>
+                    <option value="products">Products</option>
+                    <option value="services">Services</option>
+                    <option value="employees">Employees</option>
+
+                </select>
+            </div>
+            <button class="btn btn-primary" id="btnDisplayListing">Display Listing</button>
+        </div>
+
+
+
+        <!-- Return -->
+        <a href="../index.html" class="return-home">Return</a>
+    </div>
+
+    <!-- JS Script -->
+    <script>
+
+
+        // BIND OnClick Function
+        document.getElementById("btnDisplayListing").onclick = function displayBooksListing() {
+
+        }
+    </script>
+</body>
+
+</html>
