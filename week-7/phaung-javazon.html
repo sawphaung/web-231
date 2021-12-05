@@ -6,6 +6,7 @@
     Description: This program demonstrates the 
             use of JavaScript types, values, and 
             variables in an application.
+    Code Attributes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
     
 -->
 <!DOCTYPE html>
@@ -36,13 +37,19 @@
                     <option value="products">Products</option>
                     <option value="services">Services</option>
                     <option value="employees">Employees</option>
-
                 </select>
             </div>
             <button class="btn btn-primary" id="btnDisplayListing">Display Listing</button>
         </div>
 
+        <!-- Table for Products -->
+        <div class="card" id="products"></div>
 
+        <!-- Table for Services -->
+        <div class="card" id="services"></div>
+
+        <!-- Table for Services -->
+        <div class="card" id="employees"></div>
 
         <!-- Return -->
         <a href="../index.html" class="return-home">Return</a>
@@ -51,9 +58,227 @@
     <!-- JS Script -->
     <script>
 
+        // Create Product Constructor
+        class Product {
+            constructor(id, description, price, quantity) {
+                this.id = id;
+                this.description = description;
+                this.price = price;
+                this.quantity = quantity;
+            }
+
+            totalValue() {
+                let total = this.quantity * this.price;
+                return total.toFixed(2);
+            }
+        }
+
+        // Create Services Constructor
+        class Service {
+            constructor(id, description, hourlyRate, minium) {
+                this.id = id;
+                this.description = description;
+                this.hourlyRate = hourlyRate.toFixed(2);
+                this.minium = minium;
+            }
+        }
+
+        // Create Employee Constructor
+        class Employee {
+            constructor(id, firstName, lastName, salary) {
+                this.id = id;
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.salary = salary.toFixed(2);
+            }
+        }
+
+        // Create new Products 
+        let product1 = new Product("9781118008188", "HTML and CSS: Design and Build Websites", 22.26, 10);
+        let product2 = new Product("9781491952023", "JavaScript: The Definitive Guide 7/E", 41.33, 7);
+        let product3 = new Product("9781449331818", "Learning JavaScript Design Patterns 1/E", 25.99, 3);
+        let product4 = new Product("9781617292422", "Express in Action: Writing, building, and testing Node.js applications 1/E", 34.91, 3);
+        let product5 = new Product("9781491954461", "MongoDB The Definitive Guide", 33.70, 8);
+
+        // Create new Services
+        let service1 = new Service("100", "Website Design", 150, 25);
+        let service2 = new Service("101", "DevOps Consulting", 125, 50);
+        let service3 = new Service("102", "Database Design", 125, 15);
+
+        // Create list of employee
+        let employee1 = new Employee("1007", "Ludwig", "Beethoven", 13.99);
+        let employee2 = new Employee("1008", "Johann", "Bach", 22.30);
+        let employee3 = new Employee("1009", "Wolfgang", "Mozart", 19.50);
+        let employee4 = new Employee("1010", "Johannes", "Brahms", 12);
+        let employee5 = new Employee("1011", "Joseph", "Haydn", 32.50);
+
+        // Get elements by id
+        const products = document.getElementById('products');
+        const services = document.getElementById('services');
+        const employees = document.getElementById('employees');
+        // initiate display none
+        products.style.display = "none";
+        services.style.display = "none";
+        employees.style.display = "none";
 
         // BIND OnClick Function
         document.getElementById("btnDisplayListing").onclick = function displayBooksListing() {
+            let choice = document.getElementById("favoriteList").value; // Get the Select value 
+
+            // Check the condition depend what user select
+            switch (choice) {
+                case "products": // if user select - Products
+                    products.style.display = "block";
+                    services.style.display = "none";
+                    employees.style.display = "none";
+
+                    // Bindig value to Table 
+                    products.innerHTML = `
+                <div class="card-title">Javazon Services</div>
+                <table>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total <br />Value</th>
+                    </tr>
+                    <tr>
+                        <td>${product1.id}</td>
+                        <td>${product1.description}</td>
+                        <td>${product1.price}</td>
+                        <td>${product1.quantity}</td>
+                        <td>${product1.totalValue()}</td>
+                    </tr>
+                    <tr>
+                        <td>${product2.id}</td>
+                        <td>${product2.description}</td>
+                        <td>${product2.price}</td>
+                        <td>${product2.quantity}</td>
+                        <td>${product2.totalValue()}</td>
+                    </tr>
+                    <tr>
+                        <td>${product3.id}</td>
+                        <td>${product3.description}</td>
+                        <td>${product3.price}</td>
+                        <td>${product3.quantity}</td>
+                        <td>${product3.totalValue()}</td>
+                    </tr>
+                    <tr>
+                        <td>${product4.id}</td>
+                        <td>${product4.description}</td>
+                        <td>${product4.price}</td>
+                        <td>${product4.quantity}</td>
+                        <td>${product4.totalValue()}</td>
+                    </tr>
+                    <tr>
+                        <td>${product5.id}</td>
+                        <td>${product5.description}</td>
+                        <td>${product5.price}</td>
+                        <td>${product5.quantity}</td>
+                        <td>${product5.totalValue()}</td>
+                    </tr>
+                   
+                </table>
+                `;
+
+                    break;
+
+                case ("services"): // if user select - services
+
+                    products.style.display = "none";
+                    services.style.display = "block";
+                    employees.style.display = "none";
+
+                    // Bindig value to Table 
+                    services.innerHTML = `
+                <div class="card-title">Javazon Services</div>
+                <table>
+                    <tr>
+                        <th>Service ID</th>
+                        <th>Description</th>
+                        <th>Hourly Rate</th>
+                        <th>Minium Billable hours</th>                      
+                    </tr>
+                    <tr>
+                        <td>${service1.id}</td>
+                        <td>${service1.description}</td>
+                        <td>${service1.hourlyRate}</td> 
+                        <td>${service1.minium}</td>                      
+                    </tr>
+                    <tr>
+                        <td>${service2.id}</td>
+                        <td>${service2.description}</td>
+                        <td>${service2.hourlyRate}</td>
+                        <td>${service3.minium}</td>
+                    </tr>
+                    <tr>
+                        <td>${service3.id}</td>
+                        <td>${service3.description}</td>
+                        <td>${service3.hourlyRate}</td>
+                        <td>${service3.minium}</td>
+                    </tr>                              
+                </table>
+                `;
+
+                    break;
+
+                case "employees": // if user select - Employees
+                    products.style.display = "none";
+                    services.style.display = "none";
+                    employees.style.display = "block";
+
+                    // Bindig value to Table 
+                    employees.innerHTML = `
+                <div class="card-title">Javazon Services</div>
+                <table>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Salary</th>
+                    </tr>
+                    <tr>
+                        <td>${employee1.id}</td>
+                        <td>${employee1.lastName}</td>
+                        <td>${employee1.firstName}</td>
+                        <td>${employee1.salary}</td>
+                    </tr>
+                    <tr>
+                        <td>${employee2.id}</td>
+                        <td>${employee2.lastName}</td>
+                        <td>${employee2.firstName}</td>
+                        <td>${employee2.salary}</td>
+                    </tr>
+                    <tr>
+                        <td>${employee3.id}</td>
+                        <td>${employee3.lastName}</td>
+                        <td>${employee3.firstName}</td>
+                        <td>${employee3.salary}</td>
+                    </tr>
+                    <tr>
+                        <td>${employee4.id}</td>
+                        <td>${employee4.lastName}</td>
+                        <td>${employee4.firstName}</td>
+                        <td>${employee4.salary}</td>
+                    </tr>
+                    <tr>
+                        <td>${employee5.id}</td>
+                        <td>${employee5.lastName}</td>
+                        <td>${employee5.firstName}</td>
+                        <td>${employee5.salary}</td>
+                    </tr>
+                   
+                </table>
+                `;
+                    break;
+
+                default: // Default
+                    products.style.display = "none";
+                    services.style.display = "none";
+                    employees.style.display = "none";
+            }
+
 
         }
     </script>
