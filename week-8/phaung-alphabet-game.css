@@ -1,8 +1,8 @@
 /*
 ============================================
-; Title: Assignment 7 - Javazon
+; Title: Assignment 8 - Alphabet Game
 ; Author: Professor Krasso
-; Date: 12/04/2021
+; Date: 12/08/2021
 ; Modified By: Saw Phaung
 ; Description: This program demonstrates the
 ; use of JavaScript types, values, and
@@ -19,33 +19,4 @@
 /* Overwrite Styling */
 .card .card-content {
   font-size: 28px;
-}
-
-/* Books Table */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-th {
-  background-color: #4f3674;
-  color: #fff;
-  text-align: left;
-}
-
-tr {
-  transition: all 0.3s ease;
-}
-
-th,
-td {
-  padding: 12px 10px;
-  border: 1px solid #ddd;
-}
-
-tr:hover {
-  background-color: #d6a800;
-  color: #4f3674;
-  cursor: pointer;
 }
