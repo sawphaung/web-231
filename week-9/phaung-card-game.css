@@ -1,0 +1,59 @@
+/*
+============================================
+; Title: Assignment 9 - Card Game
+; Author: Professor Krasso
+; Date: 12/13/2021
+; Modified By: Saw Phaung
+; Description: This program demonstrates the
+; use of JavaScript types, values, and
+; variables in an application.
+;===========================================
+*/
+
+.app-header {
+  font-size: 28px;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* Overwrite Styling */
+.card .card-content {
+  font-size: 28px;
+  height: 100%;
+}
+
+.card .card-content span {
+  line-height: 100px;
+}
+
+.btn.btn-primary {
+  margin: 10px 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* Additional Css */
+.card.player-card {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.card.player-card .card-title {
+  padding-left: 0;
+  text-align: left;
+  height: 100px;
+}
+
+#shuffledCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.card-title {
+  text-align: left;
+  font-size: 20px;
+  padding-left: 10px;
+}
