@@ -6,7 +6,9 @@
     Description: This program demonstrates the 
             use of JavaScript types, values, and 
             variables in an application.
-    Code Attributes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+    Code Attributes: 
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+    Getting help from Classmates to solve and debug issues
     
 -->
 <!DOCTYPE html>
@@ -36,7 +38,7 @@
         <!-- Return -->
         <a href="../index.html" class="return-home">Return</a>
 
-        <div class="card">
+        <div class="card" style="padding: 0;">
             <div class="card-title">Shuffled Cards</div>
             <div class="card-content" id="shuffledCards"></div>
         </div>
@@ -66,40 +68,40 @@
         var faces = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
         var suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
 
-        // Function
+        // Function for Getting Deck
         function getDeckOfCards() {
+            // Loop and get the correct suit and face
             for (let count = 0; count < this.CARD_COUNT; count++) {
                 this.cards[count] = new Card(this.faces[count % 13], this.suits[Math.floor(count / 13)]);
             }
-
         }
 
-        // Function
+        // Function for Random Card
         function shuffle() {
-            for (var count = 0; count < this.CARD_COUNT; count++) {
+            for (let firstCard = 0; firstCard < this.CARD_COUNT; firstCard++) {
 
-                var randomNumber = Math.floor(Math.random() * this.CARD_COUNT);
-
-                if (randomNumber > 0 || randomNumber < 52) {
-                    var secondCard = randomNumber;
-                }
-
-                var firstCard = randomNumber[0];
+                // First Card to TempCard
                 let tempCard = this.cards[firstCard];
+                // Generate Random card and assign to SecondCard
+                let secondCard = Math.floor(Math.random() * this.CARD_COUNT);
 
+                /** 
+                * Reorder the cards array by setting the current card to 
+                * the secondCard and the second card to the tempCard 
+                */
                 this.cards[firstCard] = this.cards[secondCard];
                 this.cards[secondCard] = tempCard;
-
             }
 
         }
 
-        // Function
+        // Function for Building Playing Card
         function buildPlayingCard(card, suitIcon, faceColor, suitColor) {
+            // Return the corrected formatted string
             return `<div class="card player-card">       
-                <div class="card-title" style="color: ${faceColor};">
-                    <div class="card-content">
-                        ${card.face}
+                <div class="card-title" style="color: ${faceColor}; font-size: 20px; padding-left: 10px; text-align: left;">
+                     ${card.face}
+                    <div class="card-content" style="font-size: 28px; padding-bottom: 25px;">             
                         <span class="${suitIcon}" style="color: ${suitColor};"></span>
                     </div>
                 </div>
@@ -107,18 +109,19 @@
         }
 
         // BIND OnClick Function
-        document.getElementById("btnDealCards").onclick = function dealCards() {
+        document.getElementById("btnDealCards").onclick = function () {
+            // Create new Dealer Object
             var dealer = new Dealer();
+            // Call Shuffle function and assign ramdom card
+            shuffle(dealer);
 
-            shuffle();
-
+            // Create Empty string 
             var cardOutputWithIcon = "";
 
-            // console.table(cards);
+            // Get Random from Array Cards and loop 
+            for (card of cards) {
 
-
-            for (let card of cards) {
-
+                // Compare the suit against the string values of Suits
                 switch (card.suit) {
                     case "Hearts":
                         cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-heart", "red", "red");
@@ -141,11 +144,8 @@
 
             }
 
-
-
-
-
-            document.getElementById("shuffledCards").innerHTML = `${cardOutputWithIcon}`;
+            // Bind Card Output 
+            document.getElementById("shuffledCards").innerHTML = cardOutputWithIcon;
         }
     </script>
 
